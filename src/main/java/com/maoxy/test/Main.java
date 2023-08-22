@@ -9,7 +9,7 @@ import com.maoxy.task.MessageScheduler;
  */
 public class Main {
     public static void main(String[] args) {
-        MessageScheduler scheduler = new MessageScheduler();
+        MessageScheduler scheduler = new MessageScheduler(4);
 
         // Schedule messages with different priorities and expiration times
         scheduler.scheduleMessage(new Customer("email1@example.com", "1234567890"), 2, System.currentTimeMillis() + 5000);
@@ -17,6 +17,6 @@ public class Main {
         scheduler.scheduleMessage(new Customer("email3@example.com", "5555555555"), 3, System.currentTimeMillis() + 3000);
 
         // Process messages in batches of size 2
-        scheduler.processMessages(2);
+        scheduler.processMessages(2, 5000);
     }
 }
